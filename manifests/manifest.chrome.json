@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Block YouTube Shorts",
+  "version": "1.1.0",
+  "description": "Blocks YouTube Shorts while keeping regular YouTube videos accessible. Redirects /shorts/ links to the main YouTube page.",
+  "permissions": ["declarativeNetRequest"],
+  "host_permissions": ["*://*.youtube.com/*", "*://youtube.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*", "*://youtube.com/*", "*://m.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "block_shorts",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}
+

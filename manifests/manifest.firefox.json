@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Block YouTube Shorts",
+  "version": "1.1.0",
+  "description": "Blocks YouTube Shorts while keeping regular YouTube videos accessible. (Firefox build: uses content script redirect; no declarativeNetRequest redirect.)",
+  "host_permissions": ["*://*.youtube.com/*", "*://youtube.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*", "*://youtube.com/*", "*://m.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "block-yt-shorts@local",
+      "strict_min_version": "109.0"
+    }
+  }
+}
+

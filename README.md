@@ -1,6 +1,8 @@
 # Block YouTube Shorts
 
-A Chrome extension that blocks YouTube Shorts without affecting regular YouTube. Any navigation to a `/shorts/` URL (e.g. `https://www.youtube.com/shorts/VIDEO_ID`) is redirected to the main YouTube homepage.
+A browser extension that blocks YouTube Shorts without blocking regular YouTube.
+
+This repo supports **both Chrome and Firefox** (separate build outputs).
 
 ## How it works
 
@@ -12,14 +14,35 @@ A Chrome extension that blocks YouTube Shorts without affecting regular YouTube.
   - Removes **Shorts shelves/rows** in feeds (including the YouTube Home page) so Shorts thumbnails don’t appear in the first place.
 - Only **top-level** YouTube is affected; normal `youtube.com/watch?v=...` and embedded players keep working.
 
-## Installation (unpacked)
+## Build
+
+Generate browser-specific folders:
+
+```bash
+./scripts/build.sh
+```
+
+This creates:
+
+- `dist/chrome/` (Chrome/Chromium)
+- `dist/firefox/` (Firefox)
+
+## Install (Chrome / Chromium)
 
 1. Open Chrome and go to `chrome://extensions/`.
 2. Turn on **Developer mode** (top right).
 3. Click **Load unpacked**.
-4. Choose this project folder
+4. Choose `dist/chrome/`
 
 The extension will stay active until you remove or disable it.
+
+## Install (Firefox)
+
+For local testing (temporary add-on):
+
+1. Open `about:debugging#/runtime/this-firefox`
+2. Click **Load Temporary Add-on…**
+3. Select `dist/firefox/manifest.json`
 
 ## Usage
 
@@ -52,9 +75,13 @@ Then reload the extension in `chrome://extensions/`.
 
 ## Files
 
-- `manifest.json` – Extension manifest (Manifest V3) and content script registration.
-- `rules.json` – declarativeNetRequest rules for `youtube.com/shorts` URLs.
-- `content.js` – Content script that catches in‑page navigations to `/shorts/` (e.g. from the home feed).
+- `content.js` – Content script that redirects away from `/shorts/` and removes Shorts modules from feeds.
+- `rules.json` – Chrome declarativeNetRequest rule (redirect for direct `/shorts/` loads).
+- `manifests/manifest.chrome.json` – Chrome manifest template.
+- `manifests/manifest.firefox.json` – Firefox manifest template.
+- `scripts/build.sh` – Generates `dist/` folders for each browser.
+- `dist/chrome/` – Load this folder in Chrome.
+- `dist/firefox/` – Load this folder in Firefox.
 - `README.md` – This file.
 
 ## Adding icons (optional)
