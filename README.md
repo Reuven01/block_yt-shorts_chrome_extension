@@ -16,7 +16,7 @@ A Chrome extension that blocks YouTube Shorts without affecting regular YouTube.
 1. Open Chrome and go to `chrome://extensions/`.
 2. Turn on **Developer mode** (top right).
 3. Click **Load unpacked**.
-4. Choose this project folder: `block_yt_shorts_extension`.
+4. Choose this project folder
 
 The extension will stay active until you remove or disable it.
 
