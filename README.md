@@ -9,6 +9,7 @@ A Chrome extension that blocks YouTube Shorts without affecting regular YouTube.
   - Checks on load and redirects if you land on `/shorts/`.
   - Listens for YouTube’s `yt-navigate-finish` and redirects when a Shorts view is opened.
   - Uses a short polling fallback so `/shorts/` is caught even if that event doesn’t fire.
+  - Removes **Shorts shelves/rows** in feeds (including the YouTube Home page) so Shorts thumbnails don’t appear in the first place.
 - Only **top-level** YouTube is affected; normal `youtube.com/watch?v=...` and embedded players keep working.
 
 ## Installation (unpacked)
