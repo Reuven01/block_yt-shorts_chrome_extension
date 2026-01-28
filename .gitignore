@@ -1,0 +1,36 @@
+# macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Chrome extension
+_metadata/
+*.crx
+*.pem
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.*
+
+# Build / pack (if you add a build step later)
+dist/
+build/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Node (if you add npm scripts or tooling later)
+node_modules/
